@@ -1,0 +1,26 @@
+{% extends "base.html" %} {% block title %}Home{% endblock %} {% block content%}
+  <h1 align="center">POST</h1>
+  <ul class="list-group list-group-flush" id="notes">
+    {% for note in user.notes %}
+    <li class="list-group-item">
+    Name:  {{ user.name.capitalize() }}
+    <div>
+      <br>
+      {{ note.data.capitalize() }}
+      {{ note.id }}
+    </div>
+  <div style="width: 3.8cm;">
+    <a style="margin-left: 1000px;" href="/delete-note/{{note.user_id}}" class="dropdown-item">Delete</a>
+  </div>
+  </li>
+    {% endfor %}
+  </ul>
+  <form method="POST">
+    <textarea name="note" id="note" class="form-control"></textarea>
+    <br />
+    <div align="center">
+      <button type="submit" class="btn btn-primary">Add POST</button>
+    </div>
+  </form>
+  {% endblock %}
+  
