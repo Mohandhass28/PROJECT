@@ -4,23 +4,19 @@ from .models import Note,User
 from . import db
 
 views = Blueprint('views', __name__)
-
-posts = dict()
 @views.route('/', methods=['GET', 'POST'])
 @login_required
 def home():
     if request.method == 'POST': 
         note = request.form.get('note') 
-
         if len(note) < 1:
-            flash('Note is too short!', category='error') 
+            flash('Post is too short!', category='error') 
         else:
-            new_note = Note(data=note, user_id=current_user.id) 
+            new_note = Note(data=note, user_id=current_user.id,name=current_user.name) 
             db.session.add(new_note) 
             db.session.commit()
-            flash('Note added!', category='success')
-            
-            
+            flash('Post added!', category='success')
+
 
     return render_template("home.html", user=current_user)
 
@@ -35,6 +31,6 @@ def delete_note(id):
 
 @views.route('/post')
 def posts():
-    return render_template('Posts.html', user=current_user )
-    
-print(posts)
+    post = Note.query.all()
+    return render_template('Posts.html', user=current_user, s=post)
+

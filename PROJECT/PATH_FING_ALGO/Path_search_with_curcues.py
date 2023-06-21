@@ -12,8 +12,6 @@ def main(stdscr):
     c1 = curses.color_pair(1)
     c2 = curses.color_pair(2)
     s.find_path(maxy,stdscr,c1,c2,K=True)
-    # stdscr.clear()
-    # stdscr.addstr('jj')
     stdscr.getch()
 if __name__ == '__main__':
     wrapper(main)
