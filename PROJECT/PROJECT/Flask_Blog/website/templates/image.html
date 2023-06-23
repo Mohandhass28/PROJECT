@@ -1,0 +1,11 @@
+{% extends "base.html" %} {% block title %}POSTS{% endblock %} 
+{% block content%}
+<body>
+    
+    <form enctype="multipart/form-data" method="POST" action="{{url_for('views.upload')}}" >
+        <input type="file" name="file">
+        <input type="submit"/>
+    </form>
+
+</body>
+{% endblock%}

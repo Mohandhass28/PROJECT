@@ -10,17 +10,21 @@
       <br>
       {{ note.data.capitalize() }}
     </div>
+    <div>
+      <!-- {{ user.image }} -->
+    </div>
   <div style="width: 3.8cm;">
     <a style="margin-left: 1000px;" href="/delete-note/{{note.user_id}}" class="dropdown-item">Delete</a>
   </div>
   </li>
     {% endfor %}
   </ul>
-  <form method="POST">
-    <textarea name="note" id="note" class="form-control"></textarea>
-    <br />
+  <form method="POST" enctype="multipart/form-data">
+    <textarea style="height: 3cm;" name="note" id="note" class="form-control" ></textarea>
+    <br>
     <div align="center">
       <button type="submit" class="btn btn-primary">Add POST</button>
     </div>
   </form>
-  {% endblock %}
+  
+{% endblock %}
