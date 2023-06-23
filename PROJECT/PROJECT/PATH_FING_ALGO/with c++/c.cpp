@@ -101,6 +101,6 @@ void draw(set<pair<int,int>> path){
         }
         cout << " ";
         cout << endl;
-}
-Sleep(200);
+        }
+    Sleep(200);
 }
